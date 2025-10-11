@@ -12,7 +12,7 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('https://img.freepik.com/free-photo/empty-street-dark-atmosphere_23-2150914444.jpg?t=st=1741968337~exp=1741971937~hmac=752449c70932e31c1fa5cbfc5d9b23590295d076e83a8ebe6ac7ed9579ea44ed&w=1380') no-repeat;
+  background: url('images/background-light-cropped.jpeg') no-repeat;
   background-size: cover;
 }
 
@@ -23,7 +23,9 @@ header{
   width: 100%;
   display: flex;
   padding: 20px 100px;
-  background: red;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   justify-content: space-between;
   z-index: 99;
   align-items: center;
@@ -31,14 +33,14 @@ header{
 
 .logo{
   font-size: 2em;
-  color: #fff;
+  color: #1a2e3b;
   user-select: none;
 }
 
 .navigation a{
   margin-left: 40px;
   position: relative;
-  color: #fff;
+  color: #1a2e3b;
   font-size: 1.1em;
   text-decoration: none;
 }
@@ -65,8 +67,8 @@ header{
   height: 50px;
   padding: 10px 20px;
   background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #1a2e3b;
+  color: #1a2e3b;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
@@ -74,11 +76,12 @@ header{
   font-weight: 550;
   margin-left: 40px;
   transition: .5s;
+  
 }
 
 .navigation .btn-login:hover{
-  background-color: #fff;
-  color: #162938;
+  background-color: #162938;
+  color: #fff;
 } 
 
 .wrapper{
@@ -137,7 +140,7 @@ header{
   right: 0;
   width: 45px;
   height: 45px;
-  color: #e2dede;
+  color: #edebebdd;
   background: transparent;
   font-size: 1.5em;
   display: flex;
@@ -270,3 +273,83 @@ header{
   background: rgb(223, 9, 9)
 }
 
+.toggle{
+   height: 50px;
+   width: 50px;
+   padding: 0;
+   border-radius: 50%;
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 20px;
+   right: 20px;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+}
+
+.toggle svg:first-child{
+  display: none;
+}
+
+.toggle.active svg:first-child{
+  display: none;
+}
+
+.toggle.active svg:last-child{
+  display: block;
+}
+
+.darkmode{
+ background: url('images/background-night-cropped.jpeg') no-repeat; 
+ background-size: cover;
+}
+
+.darkmode header{
+  background: rgba(10,15,28,0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0,2px 10px rgba(0, 0, 0, 0.5)
+}
+
+.darkmode .logo{
+  color: #cde4ff;
+}
+
+.darkmode .navigation a{
+  color: #e6ebf0;
+}
+
+.darkmode .navigation a::after{
+   background: #9ec8ff;
+}
+
+.darkmode .btn-login{
+  border: 2px solid #9ec8ff;
+  color: #cde4ff;
+  background: transparent;
+  transition: .5s;
+}
+
+.darkmode .btn-login:hover{
+  background: #9ec8ff;
+  color: #0a0f1c;
+}
+
+.darkmode .wrapper{
+  border: 2px solid rgba(158, 200, 255, 0.5);
+  box-shadow: 0 0 30px rgba(158, 200, 255, 0.5);
+}
+
+.darkmode .input-box label, .darkmode .remember-forgot, .darkmode .login-register{
+  color: #dce8f8;
+}
+
+.darkmode .btn{
+  background: #9ec8ff;
+  color: #0a0f1c;
+}
+
+.darkmode .btn:hover{
+  background: #b9daff;
+}
