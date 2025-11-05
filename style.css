@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 *{
@@ -9,6 +11,7 @@
 
 body{ 
   display: flex;
+  overflow-x: hidden;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -18,30 +21,40 @@ body{
 
 header{
   position: fixed;
+  flex-wrap: wrap;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  padding: 20px 100px;
+  padding: 20px 5%;
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   justify-content: space-between;
   z-index: 99;
   align-items: center;
+  
 }
 
 .logo{
-  font-size: 2em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #1a2e3b;
   user-select: none;
 }
 
+.navigation{
+  display: flex;
+  gap: clamp(15px, 3vw, 35px);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .navigation a{
-  margin-left: 40px;
   position: relative;
+  align-items: center;
   color: #1a2e3b;
-  font-size: 1.1em;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  padding: 5px 10px;
   text-decoration: none;
 }
 
@@ -65,18 +78,17 @@ header{
 .navigation .btn-login{
   width: 130px;
   height: 50px;
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px);
+  white-space: nowrap;
   background: transparent;
   border: 2px solid #1a2e3b;
   color: #1a2e3b;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
   font-weight: 550;
-  margin-left: 40px;
   transition: .5s;
-  
 }
 
 .navigation .btn-login:hover{
@@ -153,7 +165,7 @@ header{
 
 .form-box h2{
   color: #fff;
-  font-size: 2em;
+  font-size: clamp(1.5rem, 4vw, 2em);
   text-align: center;
 }
 
@@ -162,7 +174,7 @@ header{
   width: 100%;
   height: 50px;
   border-bottom: 2px solid #183347;
-  margin: 30px 0;
+  margin: clamp(20px, 3vw, 30px) 0;
 }
 
 .input-box label{
@@ -187,16 +199,16 @@ header{
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2vw, 1em);
   color: #f0f0f0;
   font-weight: 600;
-  padding: 0 35px 0 5px;
+  padding: clamp(15px, 2vw, 20px) clamp(40px, 5vw, 45px) clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px);
 }
 
 .input-box .icons{
   position: absolute;
   right: 8px;
-  font-size: 1.2em;
+  font-size: clamp(1rem, 2.5vw, 1.2em);
   color: #dbdfe2;
   line-height: 57px;
 }
@@ -237,7 +249,8 @@ header{
   border: none;
   outline: none;
   font-weight: 600;
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2vw, 1em);
+  padding: clamp(8px, 1.5vw, 10px);
   color: #162938;
   border-radius: 7px;
   cursor: pointer;
@@ -282,8 +295,8 @@ header{
    display: flex;
    justify-content: center;
    align-items: center;
-   top: 20px;
-   right: 20px;
+   top: 25px;
+   right: 5px;
    background: transparent;
    border: none;
    cursor: pointer;
@@ -353,3 +366,241 @@ header{
 .darkmode .btn:hover{
   background: #b9daff;
 }
+
+@media screen and (max-width: 768px) {
+ body {
+    padding-top: 140px;
+ }
+
+  header{
+    padding: 15px 4%;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+  }
+
+  .logo{
+    order: 1;
+    margin-bottom: 10px;
+  }
+
+  .navigation{
+    justify-content: center;
+    gap: 20px;
+    order: 3;
+    width: 100%;
+  }
+
+  .btn-login{
+    order: 2;
+    width: auto;
+    min-width: 100px;
+  }
+
+  .toggle{
+    top: 20px;
+    right: 4%;
+    width: 45px;
+    height: 45px;
+    z-index: 101;
+  }
+
+  .wrapper{
+    width: 90%;
+    max-width: 380px;
+    height: 440px;
+    margin-top: 20px;
+    z-index: 50;
+  }
+
+  .wrapper.active {
+    height: 500px;
+  }
+
+  .icon-close{
+    z-index: 51;
+  }
+
+  .form-box {
+    padding: 35px 30px;
+  }
+
+  .form-box h2{
+    margin-top: 10px;
+  }
+}
+
+  @media  screen and (max-width: 480px) {
+    body{
+      background-position: center;
+      align-items: flex-start;
+      padding-top: 0;
+      padding-bottom: 50px;
+    }
+
+    header{
+      padding: 8px 3%;
+      gap: 8px;
+      z-index: 100;
+      flex-direction: column;
+    }
+
+    .logo{
+      font-size: 1.6rem;
+      margin-bottom: 3px;
+      order: 1;
+    }
+
+    .navigation{
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 5px 0;
+      width: 100%;
+      justify-content: center;
+      order: 3;
+    }
+
+    .navigation a{
+      font-size: 0.85rem;
+      padding: 5px 10px;
+    }
+
+    .btn-login{
+      width: auto;
+      max-width: 120px;
+      height: 36px;
+      font-size: 0.85rem;
+      padding: 6px 15px;
+      order: 2;
+    }
+
+    .toggle{
+      width: 38px;
+      height: 38px;
+      top: 10px;
+      right: 3%;
+      z-index: 101;
+    }
+
+    .toggle svg{
+      width: 22px;
+      height: 22px;
+    }
+
+    .wrapper{
+      position: relative;
+      width: 95%;
+      max-width: 350px;
+      height: auto;
+      min-height: 460px;
+      margin-top: 120px;
+      margin-bottom: 30px;
+      padding: 0;
+      z-index: 50;
+    }
+
+    .wrapper.active{
+     height: auto;
+     min-height: 540px;
+    }
+
+    .form-box{
+      padding: 60px 20px 30px 20px;
+      width: 100%;
+    }
+
+    .form-box.login{
+      transform: translateX(0);
+    }
+
+     .wrapper.active .form-box.login{
+      transform: translateX(-350px);
+      transition: transform .20s ease;
+     }
+
+     .form-box.register{
+      position: absolute;
+      transform: translateX(350px);
+      top: 0;
+      left: 0;
+      width: 100%;
+     }
+
+
+     .wrapper.active .form-box.register{
+      transform: translateX(0);
+      transition: transform .20s ease;
+     }
+
+     .icon-close{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      font-size: 1.3em;
+      top: 15px;
+      right: 15px;
+      z-index: 51;
+     }
+
+     .form-box h2{
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      margin-top: 0;
+      padding-top: 0;
+     }
+
+     .input-box{
+      height: 45px;
+      margin: 25px 0;
+     }
+
+     .input-box input{
+      font-size: 0.95rem;
+      padding: 15px 40px 15px 15px;
+      height: 100%;
+     }
+
+     .input-box label{
+      font-size: 0.95rem;
+     }
+
+     .input-box .icons{
+      font-size: 1.1em;
+      line-height: 45px;
+      right: 8px;
+     }
+
+    .remember-forgot{
+      font-size: 0.85em;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      margin: -10px 0 15px;
+    }
+
+    .btn{
+      height: 45px;
+      font-size: 1rem;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .login-register{
+      font-size: 0.9em;
+      margin: 20px 0 10px;
+    }
+
+    .login-register p {
+      text-align: center;
+    }
+
+    .login-register p a{
+      padding-left: 5px;
+      display: inline;
+    }
+  }
+
+   @media  screen and (max-width: 360px) {
+    
+   }
